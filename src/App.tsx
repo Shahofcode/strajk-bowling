@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import LoadingPage from "./components/LoadingPage";
+import BookingPage from "./components/BookingPage";
+import ConfirmationPage from "./components/ConfirmationPage";
+import { BookingResponse } from "./types/Booking";
 
-function App() {
+const App: React.FC = () => {
+  const [step, setStep] = useState(0);
+  const [booking, setBooking] = useState<BookingResponse | null>(null);
+
+  const handleContinue = () => setStep(1);
+
+  const handleConfirm = (response: BookingResponse) => {
+    setBooking(response);
+    setStep(2);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {step === 0 && <LoadingPage onContinue={handleContinue} />}
+      {step === 1 && <BookingPage onConfirm={handleConfirm} />}
+      {step === 2 && booking && <ConfirmationPage booking={booking} />}
+    </>
   );
-}
+};
 
 export default App;
