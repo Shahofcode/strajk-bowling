@@ -1,0 +1,250 @@
+/* Grundläggande layout */
+.booking-page {
+    background-color: #fff4f1;
+    min-height: 100vh; /* Låt sidan växa, men börja på hela skärmhöjden */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box; /* Säkerställer korrekt padding */
+}
+
+.booking-logo {
+    height: 120px;
+}
+
+/* Hamburgermeny */
+.hamburger-menu {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #441d81;
+}
+
+/* Meny-overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1c1919;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+/* Stäng-knapp */
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #ec315a;
+    cursor: pointer;
+}
+
+/* Meny-innehåll */
+.menu-content {
+    text-align: center;
+}
+
+.menu-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 42px;
+    letter-spacing: 0.03em;
+    color: #ec315a;
+    margin-bottom: 40px;
+}
+
+.menu-link {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.03em;
+    color: #ec315a;
+    cursor: pointer;
+    margin: 15px 0;
+    transition: color 0.2s ease;
+}
+
+.menu-link:hover {
+    color: #ec315a;
+}
+
+/* Innehåll för varje sida */
+.form-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.booking-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 42px;
+    letter-spacing: 0.03em;
+    color: #ec315a;
+    margin-bottom: 20px;
+}
+
+.booking-subtitle {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.8px;
+    letter-spacing: 0.03em;
+    color: #441d81;
+    margin: 10px 0;
+}
+
+/* Formcontainer */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+}
+
+/* Generell styling för etiketter */
+label {
+    font-family: "Work Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.08px;
+    letter-spacing: 0.03em;
+    color: #441d81;
+    margin-bottom: 1px;
+    align-self: flex-start;
+}
+
+/* Generell styling för inputs */
+input {
+    border: 1px solid #441d81;
+    background: transparent;
+    padding: 10px;
+    font-family: "Work Sans", sans-serif;
+    font-size: 14px;
+    color: #441d81;
+    border-radius: 3px;
+    height: 40px;
+}
+
+/* Layout för Date och Time */
+.date-time {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.date-time .date-input,
+.date-time .time-input {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Layout för People och Lanes */
+.people-lanes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.people-lanes .people-input,
+.people-lanes .lanes-input {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styling för input med enhet (pers, lanes) */
+.input-with-unit {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.input-with-unit input {
+    flex: 1;
+    padding-right: 50px; /* Ger plats för texten */
+}
+
+.input-with-unit .unit {
+    position: absolute;
+    left: 30px;
+    font-size: 14px;
+    color: #441d81;
+}
+
+/* Styling för SHOES text under Number of Lanes */
+.lanes-text {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.8px;
+    letter-spacing: 0.03em;
+    color: #441d81;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+/* Layout för Shoes */
+.shoes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.shoes .shoe-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+/* Skicka bokning-knapp */
+.submit-button {
+    background-color: #ec315a;
+    color: white;
+    font-family: "Work Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    text-align: center;
+    width: 275px;
+}
+
+.submit-button:hover {
+    background-color: #c0294e;
+}
+
+/* Felmeddelande */
+.error-message {
+    color: #ec315a;
+    font-family: "Work Sans", sans-serif;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}

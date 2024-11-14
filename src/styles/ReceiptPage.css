@@ -1,0 +1,65 @@
+/* Grundläggande layout */
+.receipt-page {
+    background-color: #fff4f1;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  /* Logga */
+  .receipt-logo {
+    width: 100px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+  
+  /* Rubrik */
+  .receipt-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 42px;
+    letter-spacing: 0.03em;
+    color: #ec315a;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  /* Kvittouppgifter */
+  .receipt-info {
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    border: 1px solid #441d81;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .receipt-info p {
+    font-family: "Work Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 10px 0;
+    color: #441d81;
+  }
+  
+  .receipt-label {
+    font-weight: 600;
+    color: #ec315a;
+  }
+  
+  /* Avslutande text */
+  .receipt-footer {
+    font-family: "Work Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 30px;
+    text-align: center;
+    color: #441d81;
+  }
+  

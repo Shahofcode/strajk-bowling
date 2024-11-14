@@ -12,11 +12,11 @@ const LoadingPage: React.FC<LoadingPageProps> = ({ onContinue }) => {
       <img
         src={logo} // Använd den importerade loggan
         alt="Strajk Logo"
-        className="logo"
+        className="loading-logo"
         onClick={onContinue}
       />
-      <h1 className="title">STRAJK</h1>
-      <p className="subtitle">BOWLING</p>
+      <h1 className="loading-title">STRAJK</h1>
+      <p className="loading-subtitle">BOWLING</p>
     </div>
   );
 };
