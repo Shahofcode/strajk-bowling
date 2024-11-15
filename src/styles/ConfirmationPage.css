@@ -29,8 +29,8 @@
   
   /* Logga */
   .confirmation-logo {
-    width: 100px;
-    margin-top: 50px;
+    width: 80px;
+    margin-top: 70px;
     margin-bottom: 20px;
   }
   
@@ -42,7 +42,7 @@
     line-height: 72px;
     letter-spacing: 0.03em;
     color: #ec315a;
-    margin-bottom: 20px;
+    margin: 0px;
     text-align: center;
   }
   
@@ -53,7 +53,7 @@
     line-height: 28.8px;
     letter-spacing: 0.03em;
     color: #441d81;
-    margin-bottom: 20px;
+    margin-top: 50px;
     text-align: center;
   }
   
@@ -74,7 +74,6 @@
   .input-group label {
     font-family: "Work Sans", sans-serif;
     font-size: 14px;
-    font-weight: 600;
     line-height: 16px;
     letter-spacing: 0.03em;
     color: #441d81;
@@ -98,18 +97,26 @@
   }
   
   /* Knapp */
+  /* Centrerad knapp-container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    padding-bottom: 20px;
+  }
+  
   .confirm-button {
     background-color: #ec315a;
     color: white;
     font-family: "Work Sans", sans-serif;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
     padding: 10px 20px;
     border: none;
     border-radius: 3px;
     text-align: center;
     width: 275px;
-    margin-top: 30px;
   }
   
   .confirm-button:hover {

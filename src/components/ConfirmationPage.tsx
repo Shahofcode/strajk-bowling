@@ -4,7 +4,7 @@ import "../styles/ConfirmationPage.css";
 import logo from "../assets/logo.svg";
 
 interface ConfirmationPageProps {
-  booking: BookingResponse | null; // Gör booking optional för att hantera null-fall
+  booking: BookingResponse;
   onNavigate: (page: "booking" | "confirmation" | "receipt") => void;
 }
 
@@ -41,11 +41,7 @@ const ConfirmationPage: React.FC<ConfirmationPageProps> = ({ booking, onNavigate
               className="menu-link"
               onClick={() => {
                 setMenuOpen(false);
-                if (booking) {
-                  onNavigate("receipt"); // Navigera till ReceiptPage om bokning finns
-                } else {
-                  alert("You need to make a booking before accessing the receipt page.");
-                }
+                onNavigate("receipt");
               }}
             >
               CONFIRMATION
@@ -62,48 +58,44 @@ const ConfirmationPage: React.FC<ConfirmationPageProps> = ({ booking, onNavigate
       <h2 className="booking-details-text">BOOKING DETAILS</h2>
 
       {/* Bokningsuppgifter */}
-      {booking ? (
-        <div className="booking-info">
-          <div className="input-group">
-            <label htmlFor="when">When</label>
-            <input type="text" id="when" value={booking.when} readOnly />
-          </div>
-          <div className="input-group">
-            <label htmlFor="who">Who</label>
-            <input type="text" id="who" value={`${booking.people} people`} readOnly />
-          </div>
-          <div className="input-group">
-            <label htmlFor="lanes">Lanes</label>
-            <input type="text" id="lanes" value={`${booking.lanes} lanes`} readOnly />
-          </div>
-          <div className="input-group">
-            <label htmlFor="booking-number">Booking Number</label>
-            <input type="text" id="booking-number" value={booking.id} readOnly />
-          </div>
-          <div className="input-group">
-            <label htmlFor="total-cost">Total Cost</label>
-            <input
-              type="text"
-              id="total-cost"
-              value={`${booking.price} kr`}
-              readOnly
-              className="red-border"
-            />
-          </div>
+      <div className="booking-info">
+        <div className="input-group">
+          <label htmlFor="when">When</label>
+          <input type="text" id="when" value={booking.when} readOnly />
         </div>
-      ) : (
-        <p className="error-message">No booking found. Please make a booking first.</p>
-      )}
+        <div className="input-group">
+          <label htmlFor="who">Who</label>
+          <input type="text" id="who" value={`${booking.people} pers`} readOnly />
+        </div>
+        <div className="input-group">
+          <label htmlFor="lanes">Lanes</label>
+          <input type="text" id="lanes" value={`${booking.lanes} lanes`} readOnly />
+        </div>
+        <div className="input-group">
+          <label htmlFor="booking-number">Booking Number</label>
+          <input type="text" id="booking-number" value={booking.id} readOnly />
+        </div>
+        <div className="input-group">
+          <label htmlFor="total-cost">Total Cost</label>
+          <input
+            type="text"
+            id="total-cost"
+            value={`${booking.price} kr`}
+            readOnly
+            className="red-border"
+          />
+        </div>
+      </div>
 
-      {/* Knapp */}
-      {booking && (
+      {/* Knapp-container */}
+      <div className="button-container">
         <button
           className="confirm-button"
-          onClick={() => onNavigate("receipt")} // Navigera till ReceiptPage
+          onClick={() => onNavigate("receipt")}
         >
           SWEET, LETS GO!
         </button>
-      )}
+      </div>
     </div>
   );
 };

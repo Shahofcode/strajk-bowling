@@ -7,7 +7,7 @@ import logo from "../assets/logo.svg";
 interface BookingPageProps {
   onConfirm: (response: any) => void;
   onNavigate: (page: "booking" | "confirmation" | "receipt") => void;
-  booking: any; // För att kolla om bokning finns
+  booking: any;
 }
 
 const BookingPage: React.FC<BookingPageProps> = ({ onConfirm, onNavigate, booking }) => {
@@ -22,7 +22,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ onConfirm, onNavigate, bookin
   const handleAddShoeSize = (size: number, index: number) => {
     setShoes((prevShoes) => {
       const updatedShoes = [...prevShoes];
-      updatedShoes[index] = size; // Uppdatera skostorleken för rätt index
+      updatedShoes[index] = size;
       return updatedShoes;
     });
   };
@@ -39,23 +39,21 @@ const BookingPage: React.FC<BookingPageProps> = ({ onConfirm, onNavigate, bookin
   };
 
   const handleSubmit = async () => {
-    // Kontrollera om datum och tid är ifyllda
     if (!date || !time) {
       setError("Please select both a date and a time before proceeding.");
       return;
     }
 
-    // Kontrollera om skostorlekar är korrekt ifyllda
     if (shoes.length !== Number(people) || shoes.some((size) => size <= 0 || isNaN(size))) {
       setError("Please fill in valid shoe sizes for all players.");
       return;
     }
 
-    setError(null); // Nollställ tidigare felmeddelanden
+    setError(null);
 
     try {
       const bookingRequest: BookingRequest = {
-        when: `${date}T${time}`,
+        when: `${date} / ${time}`,
         lanes: Number(lanes),
         people: Number(people),
         shoes,
@@ -118,7 +116,6 @@ const BookingPage: React.FC<BookingPageProps> = ({ onConfirm, onNavigate, bookin
       <h2 className="booking-subtitle">When, WHAT & Who</h2>
 
       <div className="form-container">
-        {/* Date and Time */}
         <div className="date-time">
           <div className="date-input">
             <label htmlFor="date">DATE</label>
@@ -140,7 +137,6 @@ const BookingPage: React.FC<BookingPageProps> = ({ onConfirm, onNavigate, bookin
           </div>
         </div>
 
-        {/* People and Lanes */}
         <div className="people-lanes">
           <div className="people-input">
             <label htmlFor="people">NUMBER OF AWESOME PEOPLE</label>
@@ -154,7 +150,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ onConfirm, onNavigate, bookin
                 onChange={(e) => setPeople(e.target.value)}
                 onBlur={() => handleBlur(people, setPeople)}
               />
-              <span className="unit">pers</span> {/* Enhet för personer */}
+              <span className="unit">pers</span>
             </div>
           </div>
 
@@ -170,14 +166,13 @@ const BookingPage: React.FC<BookingPageProps> = ({ onConfirm, onNavigate, bookin
                 onChange={(e) => setLanes(e.target.value)}
                 onBlur={() => handleBlur(lanes, setLanes)}
               />
-              <span className="unit">lanes</span> {/* Enhet för banor */}
+              <span className="unit">lanes</span>
             </div>
           </div>
         </div>
 
         <h3 className="lanes-text">SHOES</h3>
 
-        {/* Shoe Sizes */}
         <div className="shoes">
           {Array.from({ length: Number(people) }).map((_, index) => (
             <div className="shoe-input" key={index}>
@@ -193,9 +188,11 @@ const BookingPage: React.FC<BookingPageProps> = ({ onConfirm, onNavigate, bookin
         </div>
       </div>
 
-      <button onClick={handleSubmit} className="submit-button">
-        STRIIIIIKE!
-      </button>
+      <div className="button-container">
+        <button onClick={handleSubmit} className="submit-button">
+          STRIIIIIKE!
+        </button>
+      </div>
     </div>
   );
 };

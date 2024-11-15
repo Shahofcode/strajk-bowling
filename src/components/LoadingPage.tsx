@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/LoadingPage.css";
-import logo from "../assets/logo.svg"; // Importera loggan korrekt
+import logo from "../assets/logo.svg";
 
 interface LoadingPageProps {
   onContinue: () => void;

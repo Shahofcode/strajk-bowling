@@ -3,7 +3,7 @@ html, body {
   padding: 0;
   height: 100%; /* Täcker hela höjden */
   background-color: #fff4f1; /* Sätter bakgrundsfärgen globalt */
-  font-family: "Work Sans", sans-serif; /* Sätt en standardfont om så önskas */
+  font-family: "Work Sans", sans-serif; 
 }
 
 #root {

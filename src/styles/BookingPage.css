@@ -75,13 +75,12 @@
 
 .menu-link {
     font-family: "Bebas Neue", sans-serif;
-    font-size: 34px;
+    font-size: 44px;
     font-weight: 400;
     line-height: 28px;
     letter-spacing: 0.03em;
     color: #ec315a;
     cursor: pointer;
-    margin: 15px 0;
     transition: color 0.2s ease;
 }
 
@@ -223,7 +222,16 @@ input {
 }
 
 /* Skicka bokning-knapp */
-.submit-button {
+/* Justera layout för STRIIIIIKE-knappen */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Avstånd från innehållet */
+    padding-bottom: 20px; /* För att hålla knappen ovanför kanten */
+  }
+  
+  .submit-button {
     background-color: #ec315a;
     color: white;
     font-family: "Work Sans", sans-serif;
@@ -234,7 +242,12 @@ input {
     border-radius: 3px;
     text-align: center;
     width: 275px;
-}
+  }
+  
+  .submit-button:hover {
+    background-color: #c0294e;
+  }
+  
 
 .submit-button:hover {
     background-color: #c0294e;
